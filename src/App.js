@@ -13,6 +13,17 @@ class App extends Component {
     ]
   };
 
+  constructor() {
+    super();
+    console.log("App - Constructor");
+  }
+
+  // This fungction call after our component is render into the DOM
+  componentDidMount() {
+    // Ajax Call
+    console.log("App - Mounted");
+  }
+
   handleIncrement = counter => {
     // Warning : Do not directly modify the state object
     const counters = [...this.state.counters];
@@ -38,11 +49,14 @@ class App extends Component {
   };
 
   render() {
+    console.log("App - Rendered");
+
     return (
       <React.Fragment>
         <NavBar
           totalCounters={this.state.counters.filter(c => c.value > 0).length}
         />
+
         <main className="container">
           <Counters
             counters={this.state.counters}
